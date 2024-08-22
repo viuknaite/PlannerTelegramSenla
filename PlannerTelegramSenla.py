@@ -7,7 +7,7 @@ ADMIN_CHAT_ID = 5218304059
 
 
 @bot_client.message_handler(commands=["start"])
-def echo(message: Message):
+def sign_up(message: Message):
     with open("users.json", "r") as f_o:
         data_from_json = json.load(f_o)
 
@@ -20,6 +20,17 @@ def echo(message: Message):
     with open("users.json", "w") as f_o:
         json.dump(data_from_json, f_o, indent=4, ensure_ascii=False)
     bot_client.reply_to(message=message, text=str(f"Регистрация успешна, {username}"))
+
+
+def handle_standup_speech(message: Message):
+    bot_client.reply_to(message, "Ок")
+
+
+@bot_client.message_handler(commands=["say_standup_speech"])
+def say_standup_speech(message: Message):
+    bot_client.reply_to(message, text="Привет, как дела?")
+    # попробовать убрать message, возможно будет обрабатываться сообщение от любого пользователя в чате
+    bot_client.register_next_step_handler(message, handle_standup_speech)
 
 
 bot_client.polling()
