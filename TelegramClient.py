@@ -1,4 +1,6 @@
 import requests
+from envparse import Env, env
+
 
 class TelegramClient:
     def __init__(self, token: str, base_url: str):
@@ -17,7 +19,7 @@ class TelegramClient:
         return resp.json()
 
 if __name__ == "__PlannerTelegramSenla":
-    token = "7175797246:AAEeYWrUkHRl7zAbwV-q7fRr_6W0n-9vHT4"
+    token = env.str("TOKEN")
     telegram_client = TelegramClient(token=token, base_url="https://api.telegram.org")
-    my_params = {"chat_id": 5218304059, "text": "TEST"}
+    my_params = {"chat_id": env.int("ADMIN_CHAT_ID"), "text": "TEST"}
     print(telegram_client.post(method="sendMessage", params=my_params))
