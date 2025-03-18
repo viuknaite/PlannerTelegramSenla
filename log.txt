@@ -1,1 +1,8 @@
 
+INFO     [2025-03-17 12:30:37,863] New user viuknaite registered
+INFO     [2025-03-17 12:31:36,374] User viuknaite already registered
+INFO     [2025-03-17 12:32:11,504] New reminder from user viuknaite
+INFO     [2025-03-17 12:35:44,218] User viuknaite already registered
+INFO     [2025-03-17 12:43:50,566] New reminder from user vialimova
+INFO     [2025-03-17 12:44:36,898] User vialimova already registered
+INFO     [2025-03-17 12:44:39,290] User vialimova already registered

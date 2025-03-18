@@ -122,17 +122,17 @@ def handle_all_message(message):
 
 
 # Test replying to bot message
-# def handle_standup_speech(message: Message):
-#     bot.reply_to(message, "Ок")
-#
-#
-# @bot.message_handler(commands=["say_standup_speech"])
-# def say_standup_speech(message: Message):
-#     try:
-#         bot.reply_to(message, text="Привет, как дела?")
-#         bot.register_next_step_handler(message, handle_standup_speech)
-#     except ZeroDivisionError:
-#         logger.critical('ZeroDivisionError occured')
+def handle_task_statuses(message: Message):
+    bot.send_message(message.chat.id, 'Напишите свои статусы по текущим задачам:')
+    bot.reply_to(message, "Ок")
+
+@bot.message_handler(commands=["task_statuses"])
+def task_statuses(message: Message):
+    try:
+        bot.reply_to(message, text="Test")
+        bot.register_next_step_handler(message, handle_task_statuses)
+    except ZeroDivisionError:
+        logger.critical('ZeroDivisionError occured')
 
 
 def create_error_message(err: Exception) -> str:
